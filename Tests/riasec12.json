@@ -1,0 +1,21 @@
+{
+  "name": "RIASEC",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "category": "R",
+      "question": "I like to work on cars.",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "yes"
+        },
+        {
+          "label": "b)",
+          "answer": "no"
+        }
+      ]
+    } 
+  ]
+}

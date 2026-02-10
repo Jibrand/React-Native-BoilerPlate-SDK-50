@@ -1,0 +1,303 @@
+{
+  "name": "Maths",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the square root of 144?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "10"
+        },
+        {
+          "label": "b)",
+          "answer": "11"
+        },
+        {
+          "label": "c)",
+          "answer": "12"
+        },
+        {
+          "label": "d)",
+          "answer": "13"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "id": 2,
+      "question": "If a triangle has angles of 40° and 50°, what is the measure of the third angle?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "80°"
+        },
+        {
+          "label": "b)",
+          "answer": "90°"
+        },
+        {
+          "label": "c)",
+          "answer": "70°"
+        },
+        {
+          "label": "d)",
+          "answer": "60°"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "id": 3,
+      "question": "What is the formula for the area of a circle?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "2𝜋𝑟"
+        },
+        {
+          "label": "b)",
+          "answer": "𝜋𝑟²"
+        },
+        {
+          "label": "c)",
+          "answer": "2𝜋𝑟²"
+        },
+        {
+          "label": "d)",
+          "answer": "𝜋𝑑²"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 4,
+      "question": "Solve: 12 + 15 ÷ 3 × 2 - 4 with BODMAS rule.",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "18"
+        },
+        {
+          "label": "b)",
+          "answer": "20"
+        },
+        {
+          "label": "c)",
+          "answer": "16"
+        },
+        {
+          "label": "d)",
+          "answer": "22"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 5,
+      "question": "If x = 2 what is the value of 3x + 5?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "11"
+        },
+        {
+          "label": "b)",
+          "answer": "10"
+        },
+        {
+          "label": "c)",
+          "answer": "12"
+        },
+        {
+          "label": "d)",
+          "answer": "8"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 6,
+      "question": "What is 25% of 200?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "25"
+        },
+        {
+          "label": "b)",
+          "answer": "50"
+        },
+        {
+          "label": "c)",
+          "answer": "75"
+        },
+        {
+          "label": "d)",
+          "answer": "100"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 7,
+      "question": "If the perimeter of a square is 16 cm, what is the length of one side?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "2cm"
+        },
+        {
+          "label": "b)",
+          "answer": "4cm"
+        },
+        {
+          "label": "c)",
+          "answer": "8cm"
+        },
+        {
+          "label": "d)",
+          "answer": "16cm"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 8,
+      "question": "Convert 3/4 into a percentage.",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "25%"
+        },
+        {
+          "label": "b)",
+          "answer": "50%"
+        },
+        {
+          "label": "c)",
+          "answer": "75%"
+        },
+        {
+          "label": "d)",
+          "answer": "80%"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "id": 9,
+      "question": "The product of 121 x 0 x 200 x 25 is",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "0"
+        },
+        {
+          "label": "b)",
+          "answer": "1500"
+        },
+        {
+          "label": "c)",
+          "answer": "4000"
+        },
+        {
+          "label": "d)",
+          "answer": "None of the above"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the next prime number after 5?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "6"
+        },
+        {
+          "label": "b)",
+          "answer": "7"
+        },
+        {
+          "label": "c)",
+          "answer": "9"
+        },
+        {
+          "label": "d)",
+          "answer": "11"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 11,
+      "question": "What is the factorial of 0!?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "-1"
+        },
+        {
+          "label": "b)",
+          "answer": "0"
+        },
+        {
+          "label": "c)",
+          "answer": "1"
+        },
+        {
+          "label": "d)",
+          "answer": "None of the above"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    }
+  ]
+}

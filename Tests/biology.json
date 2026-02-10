@@ -1,0 +1,276 @@
+{
+  "name": "Biology",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which organ in the human body is responsible for pumping blood?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Lungs"
+        },
+        {
+          "label": "b)",
+          "answer": "Heart"
+        },
+        {
+          "label": "c)",
+          "answer": "Kidney"
+        },
+        {
+          "label": "d)",
+          "answer": "Brain"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 2,
+      "question": "What is the largest organ in the human body?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Liver"
+        },
+        {
+          "label": "b)",
+          "answer": "Skin"
+        },
+        {
+          "label": "c)",
+          "answer": "Brain"
+        },
+        {
+          "label": "d)",
+          "answer": "Stomach"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 3,
+      "question": "What is the study of plants called?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Zoology"
+        },
+        {
+          "label": "b)",
+          "answer": "Ecology"
+        },
+        {
+          "label": "c)",
+          "answer": "Anotomy"
+        },
+        {
+          "label": "d)",
+          "answer": "Botany"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 3
+    },
+    {
+      "id": 4,
+      "question": "Which vitamin is produced in the skin when exposed to sunlight?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Vitamin A"
+        },
+        {
+          "label": "b)",
+          "answer": "Vitamin B"
+        },
+        {
+          "label": "c)",
+          "answer": "Vitamin C"
+        },
+        {
+          "label": "d)",
+          "answer": "Vitamin D"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 3
+    },
+    {
+      "id": 5,
+      "question": "What is the chemical symbol of water?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "H₂O"
+        },
+        {
+          "label": "b)",
+          "answer": "O₂"
+        },
+        {
+          "label": "c)",
+          "answer": "CO₂"
+        },
+        {
+          "label": "d)",
+          "answer": "NaCl"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 6,
+      "question": "Which part of the body is responsible for detecting and processing sound?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Ears"
+        },
+        {
+          "label": "b)",
+          "answer": "Eyes"
+        },
+        {
+          "label": "c)",
+          "answer": "Nose"
+        },
+        {
+          "label": "d)",
+          "answer": "Mouth"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the name of the process that occurs in the stomach to break down food?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Digestion"
+        },
+        {
+          "label": "b)",
+          "answer": "Respiration"
+        },
+        {
+          "label": "c)",
+          "answer": "Excretion"
+        },
+        {
+          "label": "d)",
+          "answer": "Circulation"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the main function of the roots in a plant?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "To absorb sunlight"
+        },
+        {
+          "label": "b)",
+          "answer": "To absorb water and minerals"
+        },
+        {
+          "label": "c)",
+          "answer": "To produce food"
+        },
+        {
+          "label": "d)",
+          "answer": "To support the plant"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 9,
+      "question": "What is the function of white blood cells?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Carry oxygen"
+        },
+        {
+          "label": "b)",
+          "answer": "Fight infections"
+        },
+        {
+          "label": "c)",
+          "answer": "Aid in digestion"
+        },
+        {
+          "label": "d)",
+          "answer": "Store nutrients"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is the primary source of energy for most ecosystems?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Heat"
+        },
+        {
+          "label": "b)",
+          "answer": "Water"
+        },
+        {
+          "label": "c)",
+          "answer": "Sunlight"
+        },
+        {
+          "label": "d)",
+          "answer": "Oxygen"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    }
+  ]
+}

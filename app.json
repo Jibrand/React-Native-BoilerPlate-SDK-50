@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Medicine Agent",
+    "slug": "bbb",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1E1E"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jibraan121.bbb"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#fafafa"
+      },
+      "package": "com.jibraan121.bbb"
+    },
+    "web": {
+      "favicon": "./assets/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b35c6608-8783-4a50-b78e-3247d5d8a31d"
+      }
+    },
+    "owner": "jibraan121",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b35c6608-8783-4a50-b78e-3247d5d8a31d"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

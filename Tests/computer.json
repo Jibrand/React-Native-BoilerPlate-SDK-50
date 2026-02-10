@@ -1,0 +1,277 @@
+{
+  "name": "Computer",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does 'CPU' stand for?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Central Processing Unit"
+        },
+        {
+          "label": "b)",
+          "answer": "Computer Power Unit"
+        },
+        {
+          "label": "c)",
+          "answer": "Control Processing Unit"
+        },
+        {
+          "label": "d)",
+          "answer": "Central Programming Unit"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 2,
+      "question": "Which device is used to input data into a computer?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Monitor"
+        },
+        {
+          "label": "b)",
+          "answer": "Printer"
+        },
+        {
+          "label": "c)",
+          "answer": "Keyboard"
+        },
+        {
+          "label": "d)",
+          "answer": "Speaker"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "id": 3,
+      "question": "Which part of the computer is considered its brain?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Hard Drive"
+        },
+        {
+          "label": "b)",
+          "answer": "Motherboard"
+        },
+        {
+          "label": "c)",
+          "answer": "CPU"
+        },
+        {
+          "label": "d)",
+          "answer": "RAM"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "id": 4,
+      "question": "Which of these is a type of storage device?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Mouse"
+        },
+        {
+          "label": "b)",
+          "answer": "Hard Disk Drive (HDD)"
+        },
+        {
+          "label": "c)",
+          "answer": "Keyboard"
+        },
+        {
+          "label": "d)",
+          "answer": "Monitor"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 5,
+      "question": "What is the primary function of a printer?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "To store data"
+        },
+        {
+          "label": "b)",
+          "answer": "To produce physical copies of documents"
+        },
+        {
+          "label": "c)",
+          "answer": "To play sound"
+        },
+        {
+          "label": "d)",
+          "answer": "To input data"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 6,
+      "question": "What does 'AI' stand for?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Artificial Intelligence"
+        },
+        {
+          "label": "b)",
+          "answer": "Advanced Information"
+        },
+        {
+          "label": "c)",
+          "answer": "Automatic Input"
+        },
+        {
+          "label": "d)",
+          "answer": "Applied Innovation"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 7,
+      "question": "Which of these is an input device?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Printer"
+        },
+        {
+          "label": "b)",
+          "answer": "Scanner"
+        },
+        {
+          "label": "c)",
+          "answer": "Monitor"
+        },
+        {
+          "label": "d)",
+          "answer": "Speaker"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 8,
+      "question": "What is a shortcut for copying text?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "CTRL + X"
+        },
+        {
+          "label": "b)",
+          "answer": "CTRL + C"
+        },
+        {
+          "label": "c)",
+          "answer": "CTRL + Z"
+        },
+        {
+          "label": "d)",
+          "answer": "CTRL + V"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 9,
+      "question": "What is the main function of the CPU in a computer?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "To store data"
+        },
+        {
+          "label": "b)",
+          "answer": "To process data"
+        },
+        {
+          "label": "c)",
+          "answer": "To display data"
+        },
+        {
+          "label": "d)",
+          "answer": "To connect to the internet"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is used to protect a computer from viruses?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "Firewall"
+        },
+        {
+          "label": "b)",
+          "answer": "Antivirus software"
+        },
+        {
+          "label": "c)",
+          "answer": "RAM"
+        },
+        {
+          "label": "d)",
+          "answer": "Printer"
+        },
+        {
+          "label": "e)",
+          "answer": "Not sure"
+        }
+      ],
+      "correctAnswerIndex": 1
+    }
+    
+  ]
+}

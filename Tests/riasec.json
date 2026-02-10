@@ -1,0 +1,389 @@
+{
+    "name": "RIASEC",
+    "previous": false,
+    "questions": [  
+      {
+        "id": 1,
+        "category": "R",
+        "question": "I like to work on cars.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 2,
+        "category": "R",
+        "question": "I like to build things.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 3,
+        "category": "R",
+        "question": "I like working outdoors.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 4,
+        "category": "R",
+        "question": "I like putting things together or assembling things.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 5,
+        "category": "R",
+        "question": "I like to take care of animals.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 6,
+        "category": "R",
+        "question": "I like the application of things more than theoretical things.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 7,
+        "category": "R",
+        "question": "I like to cook.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 8,
+        "category": "I",
+        "question": "I like to do puzzles.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 9,
+        "category": "I",
+        "question": "I enjoy science.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 10,
+        "category": "I",
+        "question": "I like to analyze things (problems/situations).",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 11,
+        "category": "I",
+        "question": "I like doing experiments.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 12,
+        "category": "I",
+        "question": "I enjoy trying to figure out how things work.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 13,
+        "category": "I",
+        "question": "I am good at solving math problems.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      },
+      {
+        "id": 14,
+        "category": "I",
+        "question": "I like working with numbers or charts.",
+        "options": [
+          {"label": "a)", "answer": "yes"},
+          {"label": "b)", "answer": "no"}
+        ]
+      
+    
+  },
+  {
+    "id": 15,
+    "category": "A",
+    "question": "I like to draw.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 16,
+    "category": "A",
+    "question": "I enjoy creative writing.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 17,
+    "category": "A",
+    "question": "I like to play musical instruments.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 18,
+    "category": "A",
+    "question": "I am good at working independently.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 19,
+    "category": "A",
+    "question": "I like acting or performing arts.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 20,
+    "category": "A",
+    "question": "I like to read about art and music.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 21,
+    "category": "A",
+    "question": "I'm a creative person.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 22,
+    "category": "S",
+    "question": "I like to work in teams.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 23,
+    "category": "S",
+    "question": "I like helping people with their problems.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 24,
+    "category": "S",
+    "question": "I enjoy teaching or training others.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 25,
+    "category": "S",
+    "question": "I am interested in healing people.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  
+  {
+    "id": 26,
+    "category": "S",
+    "question": "I enjoy learning about other cultures.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 27,
+    "category": "S",
+    "question": "I like to get into discussions about issues.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 28,
+    "category": "S",
+    "question": "I like helping people.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 29,
+    "category": " E",
+    "question": "I am an ambitious person,I set goals for myself.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  
+  {
+    "id": 30,
+    "category": "E",
+    "question": "I like to try to influence or persuade people.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 31,
+    "category": "E",
+    "question": "I like selling things.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 32,
+    "category": "E",
+    "question": "I am quick to take on new responsibilities.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 33,
+    "category": "E",
+    "question": " I would like to start my own business.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 34,
+    "category": "E",
+    "question": "I like to lead.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 35,
+    "category": "E",
+    "question": "I like to give speeches.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 36,
+    "category": "C",
+    "question": "I like to organize things(files, desks/offices).",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 37,
+    "category": "C",
+    "question": " I am good at keeping records of my work.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 38,
+    "category": "C",
+    "question": "I like to have clear instructions to follow.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 39,
+    "category": "C",
+    "question": "I don't have problem working 8 hours per day in an office.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 40,
+    "category": "C",
+    "question": "I pay attention to details.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 41,
+    "category": "C",
+    "question": "I like to do filing or typing.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  },
+  {
+    "id": 42,
+    "category": "C",
+    "question": "I would like to work in an office.",
+    "options": [
+      {"label": "a)", "answer": "yes"},
+      {"label": "b)", "answer": "no"}
+    ]
+  }
+  ]
+  }
+  

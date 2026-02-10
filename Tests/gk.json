@@ -1,0 +1,156 @@
+{
+  "name": "General Knowledge",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": [
+        { "label": "a)", "answer": "Steel" },
+        { "label": "b)", "answer": "Diamond" },
+        { "label": "c)", "answer": "Quartz" },
+        { "label": "d)", "answer": "Granite" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    
+    {
+      "id": 2,
+      "question": "What is the capital city of Canada?",
+      "options": [
+        { "label": "a)", "answer": "Toronto" },
+        { "label": "b)", "answer": "Ottawa" },
+        { "label": "c)", "answer": "Vancouver" },
+        { "label": "d)", "answer": "Montreal" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 3,
+      "question": "What is the currency of China?",
+      "options": [
+        { "label": "a)", "answer": "Yuan" },
+        { "label": "b)", "answer": "Won" },
+        { "label": "c)", "answer": "Yen" },
+        { "label": "d)", "answer": "Dollar" }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 4,
+      "question": "Who invented the telephone?",
+      "options": [
+        { "label": "a)", "answer": "Thomas Edison" },
+        { "label": "b)", "answer": "Alexander Graham Bell" },
+        { "label": "c)", "answer": "Nikola Tesla" },
+        { "label": "d)", "answer": "Samuel Morse" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 5,
+      "question": "Which country is known as the 'Land of the Rising Sun'?",
+      "options": [
+        { "label": "a)", "answer": "China" },
+        { "label": "b)", "answer": "Japan" },
+        { "label": "c)", "answer": "South Korea" },
+        { "label": "d)", "answer": "Thailand" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    
+    {
+      "id": 6,
+      "question": "Who was the first man to walk on the Moon?",
+      "options": [
+        { "label": "a)", "answer": "Buzz Aldrin" },
+        { "label": "b)", "answer": "Neil Armstrong" },
+        { "label": "c)", "answer": "Michael Collins" },
+        { "label": "d)", "answer": "Yuri Gagarin" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 7,
+      "question": "Who is known as the father of modern physics?",
+      "options": [
+        { "label": "a)", "answer": "Isaac Newton" },
+        { "label": "b)", "answer": "Albert Einstein" },
+        { "label": "c)", "answer": "Galileo Galilei" },
+        { "label": "d)", "answer": "Nikola Tesla" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 8,
+      "question": "Which planet is known as the Red Planet?",
+      "options": [
+        { "label": "a)", "answer": "Venus" },
+        { "label": "b)", "answer": "Mars" },
+        { "label": "c)", "answer": "Jupiter" },
+        { "label": "d)", "answer": "Saturn" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 9,
+      "question": "What is the largest mammal in the world?",
+      "options": [
+        { "label": "a)", "answer": "African Elephant" },
+        { "label": "b)", "answer": "Blue Whale" },
+        { "label": "c)", "answer": "Sperm Whale" },
+        { "label": "d)", "answer": "Hippopotamus" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 10,
+      "question": "Which country invented paper?",
+      "options": [
+        { "label": "a)", "answer": "India" },
+        { "label": "b)", "answer": "China" },
+        { "label": "c)", "answer": "Egypt" },
+        { "label": "d)", "answer": "Greece" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    
+    {
+      "id": 11,
+      "question": "Which famous tech figure stepped down as CEO of Amazon in 2021?",
+      "options": [
+        { "label": "a)", "answer": "Bill Gates" },
+        { "label": "b)", "answer": "Jeff Bezos" },
+        { "label": "c)", "answer": "Elon Musk" },
+        { "label": "d)", "answer": "Larry Page" }
+      ],
+      "correctAnswerIndex": 1
+    },
+    {
+      "id": 12,
+      "question": "Which video conferencing platform saw massive growth during the COVID-19 pandemic?",
+      "options": [
+        { "label": "a)", "answer": "Microsoft Teams" },
+        { "label": "b)", "answer": "Skype" },
+        { "label": "c)", "answer": "Zoom" },
+        { "label": "d)", "answer": "Google Meet" }
+      ],
+      "correctAnswerIndex": 2
+    },
+    
+    {
+      "id": 13,
+      "question": "Which country hosted the 2022 FIFA World Cup?",
+      "options": [
+        { "label": "a)", "answer": "Russia" },
+        { "label": "b)", "answer": "Brazil" },
+        { "label": "c)", "answer": "Qatar" },
+        { "label": "d)", "answer": "Japan" }
+      ],
+      "correctAnswerIndex": 2
+    }
+    
+   
+    
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "name": "Chemistry",
+  "previous": false,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the square root of 64?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "8"
+        },
+        {
+          "label": "b)",
+          "answer": "12"
+        },
+        {
+          "label": "c)",
+          "answer": "49"
+        },
+        {
+          "label": "d)",
+          "answer": "13"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 2,
+      "question": "A triangle has two angles: 40° and 50°. What is the third angle?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "80°"
+        },
+        {
+          "label": "b)",
+          "answer": "90°"
+        },
+        {
+          "label": "c)",
+          "answer": "70°"
+        },
+        {
+          "label": "d)",
+          "answer": "60°"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the formula for the area of a circle?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "2𝜋𝑟"
+        },
+        {
+          "label": "b)",
+          "answer": "𝜋𝑟²"
+        },
+        {
+          "label": "c)",
+          "answer": "2𝜋𝑟²"
+        },
+        {
+          "label": "d)",
+          "answer": "𝜋𝑑²"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 4,
+      "question": "Solve: 12 + 15 ÷ 3 × 2 - 4",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "18"
+        },
+        {
+          "label": "b)",
+          "answer": "20"
+        },
+        {
+          "label": "c)",
+          "answer": "22"
+        },
+        {
+          "label": "d)",
+          "answer": "16"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 5,
+      "question": "If x = 2, what is the value of 3x + 5?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "11"
+        },
+        {
+          "label": "b)",
+          "answer": "10"
+        },
+        {
+          "label": "c)",
+          "answer": "12"
+        },
+        {
+          "label": "d)",
+          "answer": "8"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 6,
+      "question": "What is 25% of 200?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "25"
+        },
+        {
+          "label": "b)",
+          "answer": "50"
+        },
+        {
+          "label": "c)",
+          "answer": "75"
+        },
+        {
+          "label": "d)",
+          "answer": "100"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 7,
+      "question": "If one side of a square is 4 cm long, what is the length of its other sides?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "2 cm"
+        },
+        {
+          "label": "b)",
+          "answer": "4 cm"
+        },
+        {
+          "label": "c)",
+          "answer": "8 cm"
+        },
+        {
+          "label": "d)",
+          "answer": "16 cm"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 8,
+      "question": "Convert 3/4 into a percentage.",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "25%"
+        },
+        {
+          "label": "b)",
+          "answer": "50%"
+        },
+        {
+          "label": "c)",
+          "answer": "75%"
+        },
+        {
+          "label": "d)",
+          "answer": "80%"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the product of 121 × 0 × 200 × 25?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "0"
+        },
+        {
+          "label": "b)",
+          "answer": "1500"
+        },
+        {
+          "label": "c)",
+          "answer": "4000"
+        },
+        {
+          "label": "d)",
+          "answer": "None of the above"
+        }
+      ],
+      "correctAnswerIndex": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the next prime number after 5?",
+      "options": [
+        {
+          "label": "a)",
+          "answer": "6"
+        },
+        {
+          "label": "b)",
+          "answer": "7"
+        },
+        {
+          "label": "c)",
+          "answer": "9"
+        },
+        {
+          "label": "d)",
+          "answer": "11"
+        }
+      ],
+      "correctAnswerIndex": 0
+    }
+  ]
+}
