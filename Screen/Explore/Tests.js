@@ -189,6 +189,9 @@ function SurveyRow({ item, onPress, onUpdateStatus, isUpdating }) {
         <Text style={[styles.surveyText, isAnswered && styles.answeredText]}>
           {item.title}
         </Text>
+        {!isAnswered && (
+          <Text style={styles.surveyHint}>Click to open the form</Text>
+        )}
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -248,15 +251,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
     borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 18,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     borderWidth: 1,
     borderColor: "#F1F5F9",
     justifyContent: 'center',
   },
   statusActionBox: {
-    width: 60,
-    height: 56, // Matches title box height approx
+    width: 50,
+    height: 50, // Matches title box height approx
     backgroundColor: "#FFFFFF",
     borderRadius: 12,
     alignItems: "center",
@@ -271,6 +274,12 @@ const styles = StyleSheet.create({
   },
   answeredText: {
     color: "#64748B",
+  },
+  surveyHint: {
+    fontSize: 12,
+    color: "#94A3B8",
+    marginTop: 4,
+    fontWeight: '400',
   },
   empty: {
     flex: 1,

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -8,16 +8,35 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 import Header from '../../components/Header';
 import { MaterialIcons, FontAwesome, Feather, Entypo } from '@expo/vector-icons';
 import { useMedicines } from '../MedicineContext';
 import DoctorBlog from './DoctorBlog';
-// import MapView, { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
 
 const { width } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {
   const { t } = useMedicines();
+  const [userName, setUserName] = useState('Patient');
+
+  useFocusEffect(
+    useCallback(() => {
+      const fetchUser = async () => {
+        try {
+          const userDataStr = await AsyncStorage.getItem('userData');
+          if (userDataStr) {
+            const userData = JSON.parse(userDataStr);
+            setUserName(userData.name || 'Patient');
+          }
+        } catch (e) {
+          console.error('Failed to load user name');
+        }
+      };
+      fetchUser();
+    }, [])
+  );
 
   const scrollY = useRef(new Animated.Value(0)).current;
 
@@ -42,7 +61,7 @@ const HomeScreen = ({ navigation }) => {
             style={styles.heroImage}
           />
           <View style={styles.heroOverlay}>
-            <Text style={styles.heroWelcome}>Welcome back, Jibran</Text>
+            <Text style={styles.heroWelcome}>Welcome back, {userName}</Text>
             {/* <Text style={styles.heroName}></Text> */}
           </View>
         </View>
