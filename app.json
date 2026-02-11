@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Medicine Agent",
+    "name": "Zayna",
     "slug": "bbb",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/zayna.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/zayna.png",
       "resizeMode": "contain",
       "backgroundColor": "#1E1E1E"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.png",
+        "foregroundImage": "./assets/zayna.png",
         "backgroundColor": "#fafafa"
       },
       "package": "com.jibraan121.bbb"
