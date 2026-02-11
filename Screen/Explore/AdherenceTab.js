@@ -1,36 +1,72 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Platform, ScrollView, FlatList, Modal, Pressable, Image } from 'react-native';
+import React, { useCallback } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Platform, ScrollView, FlatList, Modal, Pressable, Image, ActivityIndicator, RefreshControl } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useMedicines } from '../MedicineContext';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 48) / 2;
 const DAYS_RANGE = 20; // Show 20 days around today
 const ITEM_WIDTH = 56;
 
+const SUB_ICONS = {
+  p1: require('../../assets/p1.png'),
+  p2: require('../../assets/p2.png'),
+  p3: require('../../assets/p3.png'),
+};
+
+const MedicineIcon = ({ name, color, size = 20 }) => {
+  if (SUB_ICONS[name]) {
+    return (
+      <Image
+        source={SUB_ICONS[name]}
+        style={{ width: size, height: size, tintColor: color || '#fff' }}
+      />
+    );
+  }
+  return <Ionicons name={name || 'medkit'} size={size} color={color || '#fff'} />;
+};
+
 export default function AdherenceHome() {
   const navigation = useNavigation();
+  const { todayLogs, loadTodayLogs, updateLogStatus, loadingLogs } = useMedicines();
   const [activeSubTab, setActiveSubTab] = React.useState('List'); // 'List' or 'Timeline'
   const today = React.useMemo(() => new Date(), []);
   const [selectedDate, setSelectedDate] = React.useState(today);
 
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true);
+    const dateStr = selectedDate.toISOString().split('T')[0];
+    await loadTodayLogs(dateStr);
+    setRefreshing(false);
+  }, [selectedDate]);
+
+  useFocusEffect(
+    useCallback(() => {
+      const dateStr = selectedDate.toISOString().split('T')[0];
+      loadTodayLogs(dateStr);
+    }, [selectedDate])
+  );
+
+  React.useEffect(() => {
+    const dateStr = selectedDate.toISOString().split('T')[0];
+    loadTodayLogs(dateStr);
+  }, [selectedDate]);
+
   // Status Modal State
   const [isStatusModalVisible, setIsStatusModalVisible] = React.useState(false);
-  const [activeItemId, setActiveItemId] = React.useState(null);
-  const [itemStatuses, setItemStatuses] = React.useState({
-    'next-dose': 'half',
-    '10am-checkup': 'done',
-    '9pm-doliprane': 'half',
-  });
+  const [activeLogId, setActiveLogId] = React.useState(null);
 
-  const openStatusPicker = (id) => {
-    setActiveItemId(id);
+  const openStatusPicker = (logId) => {
+    setActiveLogId(logId);
     setIsStatusModalVisible(true);
   };
 
-  const updateStatus = (status) => {
-    if (activeItemId) {
-      setItemStatuses(prev => ({ ...prev, [activeItemId]: status }));
+  const updateStatus = async (status) => {
+    if (activeLogId) {
+      await updateLogStatus(activeLogId, status);
     }
     setIsStatusModalVisible(false);
   };
@@ -43,16 +79,13 @@ export default function AdherenceHome() {
     });
   }, [today]);
 
-  const medicines = [
-    { id: '1', name: 'Doliprane', icon: 'medkit-outline', color: '#22C55E', nextDose: '14:00' },
-    { id: '2', name: 'Ibuprofen', icon: 'medkit-outline', color: '#22C55E', nextDose: '18:00' },
-    { id: '3', name: 'Vitamin D', icon: 'medkit-outline', color: '#22C55E', nextDose: '09:00' },
-  ];
-
   const appointments = [
     { id: 'a1', title: 'Dental Checkup', icon: 'calendar-outline', color: '#6366F1', time: '16:30', location: 'Downtown Clinic' },
     { id: 'a2', title: 'Doctor Visit', icon: 'calendar-outline', color: '#6366F1', time: '10:00', location: 'City Hospital' },
   ];
+
+  const takenCount = todayLogs.filter(l => l.status === 'taken').length;
+  const totalCount = todayLogs.length;
 
   return (
     <View style={styles.container}>
@@ -146,6 +179,9 @@ export default function AdherenceHome() {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 140 }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       >
         {activeSubTab === 'List' ? (
           <>
@@ -157,22 +193,33 @@ export default function AdherenceHome() {
                 style={[styles.card, { backgroundColor: '#E4E3E4' }]}
               >
                 <View style={styles.iconCircle}>
-                  {/* <Ionicons name="medkit-outline" size={22} color="#fff" />
-                   */}
                   <Image source={require('../../assets/pill1.png')} style={styles.icon} />
-
                 </View>
                 <Text style={styles.cardTitle}>Medicine</Text>
 
-                <View style={[styles.innerCard, { minHeight: medicines.length * 50 }]}>
-                  {medicines.map(med => (
-                    <View key={med.id} style={styles.innerRow}>
-                      <View style={{ marginLeft: 8 }}>
-                        <Text style={styles.innerText}>{med.name}</Text>
-                        <Text style={styles.innerInfoText}>Next: {med.nextDose}</Text>
-                      </View>
+                <View style={[styles.innerCard, { minHeight: 60 }]}>
+                  {loadingLogs && !refreshing ? (
+                    <View style={styles.inlineLoading}>
+                      <ActivityIndicator size="small" color="#1F2937" />
                     </View>
-                  ))}
+                  ) : (
+                    <>
+                      {todayLogs.map(log => (
+                        <View key={log.id} style={styles.innerRow}>
+                          <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: log.color || '#F3F4F6', alignItems: 'center', justifyContent: 'center' }}>
+                            <MedicineIcon name={log.icon} color="#fff" size={16} />
+                          </View>
+                          <View style={{ marginLeft: 8, flex: 1 }}>
+                            <Text style={styles.innerText}>{log.name}</Text>
+                            <Text style={styles.innerInfoText}>{log.scheduledTime} - {log.status === 'taken' ? 'Taken' : 'Upcoming'}</Text>
+                          </View>
+                        </View>
+                      ))}
+                      {todayLogs.length === 0 && (
+                        <Text style={[styles.innerInfoText, { padding: 10 }]}>No doses today</Text>
+                      )}
+                    </>
+                  )}
                 </View>
               </TouchableOpacity>
 
@@ -201,12 +248,10 @@ export default function AdherenceHome() {
             <View style={styles.recapRow}>
               <View style={styles.recapCard}>
                 <View style={styles.recapIconBg}>
-                  {/* <Ionicons name="medical" size={24} color="#38BDF8" />                  <Image source={require('../../assets/pill1.png')} style={styles.icon} />
- */}
                   <Image source={require('../../assets/pill1.png')} style={styles.icon} />
                 </View>
                 <Text style={styles.recapText}>
-                  <Text style={styles.recapMain}>2</Text>/3
+                  <Text style={styles.recapMain}>{takenCount}</Text>/{totalCount}
                 </Text>
               </View>
 
@@ -222,91 +267,63 @@ export default function AdherenceHome() {
               </View>
             </View>
 
-            <Text style={styles.timelineSectionTitle}>Next</Text>
-            {/* NEXT DOSE - Refactored */}
-            <View style={styles.doseRowContainer}>
-              {/* Box 1: Icon - Blue Circle */}
-              <View style={styles.doseIconBox}>
-                <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: '#38BDF8', alignItems: 'center', justifyContent: 'center' }}>
-                  <View style={{ width: 14, height: 4, backgroundColor: '#fff', transform: [{ rotate: '-45deg' }], borderRadius: 2 }} />
-                </View>
+            <Text style={styles.timelineSectionTitle}>Daily Schedule</Text>
+            {loadingLogs && !refreshing ? (
+              <View style={styles.inlineLoading}>
+                <ActivityIndicator size="small" color="#1F2937" />
               </View>
+            ) : (
+              <>
+                {todayLogs.map(log => (
+                  <View key={log.id} style={styles.doseRowContainer}>
+                    {/* Box 1: Icon */}
+                    <View style={styles.doseIconBox}>
+                      <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: log.color || '#38BDF8', alignItems: 'center', justifyContent: 'center' }}>
+                        <MedicineIcon name={log.icon} color="#fff" size={16} />
+                      </View>
+                    </View>
 
-              {/* Box 2: Info */}
-              <View style={styles.doseMiddleBox}>
-                <Text style={styles.doseName}>Doliprane</Text>
-                <Text style={styles.doseSub}>1000 mg</Text>
-                <Text style={styles.takeInfo}>Take 1</Text>
-              </View>
+                    {/* Box 2: Info */}
+                    <View style={styles.doseMiddleBox}>
+                      <View>
+                        <Text style={styles.doseName}>{log.name}</Text>
+                        <Text style={styles.doseSub}>{log.dosage}</Text>
+                      </View>
+                      <Text style={styles.takeInfo}>{log.scheduledTime}</Text>
+                    </View>
 
-              {/* Box 3: Status */}
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => openStatusPicker('next-dose')}
-                style={styles.doseStatusBox}
-              >
-                {/* Default to pie chart for this explicit example */}
-                <Ionicons name="pie-chart" size={24} color="#111827" />
-              </TouchableOpacity>
-            </View>
+                    {/* Box 3: Status */}
+                    <TouchableOpacity
+                      activeOpacity={0.7}
+                      onPress={() => {
+                        if (log.status === 'taken') return;
 
-            <Text style={styles.timelineSectionTitle}>8:00 AM</Text>
-            {/* 8:00 AM xyz - Refactored */}
-            <View style={styles.doseRowContainer}>
-              {/* Box 1: Icon - Pill Outline */}
-              <View style={styles.doseIconBox}>
-                <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: '#38BDF8', alignItems: 'center', justifyContent: 'center' }}>
-                  <View style={{ width: 14, height: 4, backgroundColor: '#fff', transform: [{ rotate: '-45deg' }], borderRadius: 2 }} />
-                </View>
-              </View>
+                        const scheduled = new Date(`${log.scheduledDate}T${log.scheduledTime}`);
+                        if (scheduled > new Date()) {
+                          alert('You cannot mark future medications as taken.');
+                          return;
+                        }
 
-              {/* Box 2: Info */}
-              <View style={styles.doseMiddleBox}>
-                <Text style={styles.doseName}>xyz</Text>
-                <Text style={styles.doseSub}>1000 mg</Text>
-                <Text style={styles.takeInfo}>Take 2</Text>
-              </View>
-
-              {/* Box 3: Status */}
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => openStatusPicker('10am-checkup')}
-                style={styles.doseStatusBox}
-              >
-                <Ionicons name="checkmark-done-outline" size={24} color="#22C55E" />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.timelineSectionTitle}>09:00 PM</Text>
-            {/* 09:00 PM Doliprane - Refactored */}
-            <View style={styles.doseRowContainer}>
-              {/* Box 1: Icon */}
-              <View style={styles.doseIconBox}>
-                <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: '#38BDF8', alignItems: 'center', justifyContent: 'center' }}>
-                  <View style={{ width: 14, height: 4, backgroundColor: '#fff', transform: [{ rotate: '-45deg' }], borderRadius: 2 }} />
-                </View>
-              </View>
-
-              {/* Box 2: Info */}
-              <View style={styles.doseMiddleBox}>
-                <View>
-                  <Text style={styles.doseName}>Doliprane</Text>
-                  <Text style={styles.doseSub}>1000 mg</Text>
-                </View>
-                <Text style={styles.takeInfo}>Take 1</Text>
-              </View>
-
-              {/* Box 3: Status */}
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => openStatusPicker('9pm-doliprane')}
-                style={styles.doseStatusBox}
-              >
-                {itemStatuses['9pm-doliprane'] === 'half' && <Ionicons name="pie-chart" size={24} color="#ffa600ff" />}
-                {itemStatuses['9pm-doliprane'] === 'done' && <Ionicons name="checkmark-done" size={24} color="#10B981" />}
-                {itemStatuses['9pm-doliprane'] === 'empty' && <Ionicons name="ellipse-outline" size={24} color="#9CA3AF" />}
-              </TouchableOpacity>
-            </View>
+                        updateLogStatus(log.id, 'taken');
+                      }}
+                      style={[
+                        styles.doseStatusBox,
+                        log.status === 'taken'
+                      ]}
+                    >
+                      {log.status === 'taken' ? (
+                        <Ionicons name="checkmark" size={24} color="#22C55E" />
+                      ) : (
+                        <Ionicons name="ellipse-outline" size={24} color="#9CA3AF" />
+                      )}
+                    </TouchableOpacity>
+                  </View>
+                ))}
+                {todayLogs.length === 0 && (
+                  <Text style={{ textAlign: 'center', marginTop: 20, color: '#9CA3AF' }}>No doses scheduled for today</Text>
+                )}
+              </>
+            )}
           </View>
         )}
       </ScrollView>
@@ -327,7 +344,7 @@ export default function AdherenceHome() {
 
             <TouchableOpacity
               style={styles.statusOption}
-              onPress={() => updateStatus('done')}
+              onPress={() => updateStatus('taken')}
             >
               <View style={[styles.statusIconBox, { backgroundColor: '#DCFCE7' }]}>
                 <Ionicons name="checkmark-circle" size={24} color="#22C55E" />
@@ -705,7 +722,7 @@ const styles = StyleSheet.create({
   doseStatusBox: {
     width: 64,
     backgroundColor: '#fff',
-    borderRadius: 20,
+    // borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -756,9 +773,14 @@ const styles = StyleSheet.create({
     height: 46,
     backgroundColor: '#fff',
     borderRadius: 10,
+    // borderWidth: 1.5,
+    // borderColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
-  // Overwrite older styles if needed or just use the new ones
+  inlineLoading: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

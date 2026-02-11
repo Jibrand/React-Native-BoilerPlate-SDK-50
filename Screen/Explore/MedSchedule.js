@@ -12,12 +12,13 @@ import {
   TextInput,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-// import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { useMedicines } from '../MedicineContext';
-
+import { api } from '../../utils/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MedSchedule({ navigation, route }) {
-  const { addMedicine } = useMedicines();
+  const { addMedicine, loadMedicines } = useMedicines();
   const { medicine } = route.params;
 
   const [frequency, setFrequency] = useState('Every day');
@@ -38,6 +39,7 @@ export default function MedSchedule({ navigation, route }) {
   const [timePickerVisible, setTimePickerVisible] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [loading, setLoading] = useState(false);
 
   const { t } = useMedicines();
 
@@ -80,19 +82,16 @@ export default function MedSchedule({ navigation, route }) {
   };
 
   const handleTimeChange = (event, selectedDate) => {
-    // For Android, we need to hide the picker immediately
     const isAndroid = Platform.OS === 'android';
     if (isAndroid) setTimePickerVisible(false);
 
     if (selectedDate) {
       setCurrentDate(selectedDate);
-
-      // Format to "HH:MM AM/PM"
       let hours = selectedDate.getHours();
       const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
       const ampm = hours >= 12 ? 'PM' : 'AM';
       hours = hours % 12;
-      hours = hours ? hours : 12; // the hour '0' should be '12'
+      hours = hours ? hours : 12;
       const timeStr = `${hours}:${minutes} ${ampm}`;
 
       setTimes(prev => {
@@ -102,33 +101,65 @@ export default function MedSchedule({ navigation, route }) {
       });
     }
 
-    // For iOS, the picker stays visible unless explicitly closed or handled via a "Done" button if we wrap it
-    // But simplest is to close it on change or keep it inline.
-    // Given the prompt "best library", we'll stick to the standard behavior.
-    if (!isAndroid && event.type === 'set') {
-      // iOS handled via state or specific UI if needed
-    }
-
     if (!isAndroid) setTimePickerVisible(false);
   };
 
-  const saveMedicine = () => {
-    addMedicine({
-      name: medicine.name,
-      ...medicine,
-      schedule: { frequency, days, timesPerDay, times, pillsLeft, refillReminder }
-    });
-    setShowSuccess(true);
+  const saveMedicine = async () => {
+    setLoading(true);
+    try {
+      const userDataStr = await AsyncStorage.getItem('userData');
+      if (!userDataStr) return;
+      const userData = JSON.parse(userDataStr);
+
+      const selectedDays = Object.keys(days).filter(d => days[d]);
+
+      // Convert times to 24h format for backend
+      const formattedTimes = times.map(t => {
+        const [timePart, period] = t.split(' ');
+        let [hours, minutes] = timePart.split(':');
+        hours = parseInt(hours);
+        if (period === 'PM' && hours < 12) hours += 12;
+        if (period === 'AM' && hours === 12) hours = 0;
+        return `${hours.toString().padStart(2, '0')}:${minutes}`;
+      });
+
+      const payload = {
+        patientId: userData.id,
+        name: medicine.name,
+        dosage: `${medicine.dosage} ${medicine.unit}`,
+        frequency: selectedDays,
+        timesPerDay,
+        scheduledTimes: formattedTimes,
+        icon: medicine.icon,
+        color: medicine.color,
+        refillReminder,
+        stock: pillsLeft
+      };
+
+      const response = await api.post('/medications', payload);
+
+      if (response.success) {
+        addMedicine(response.data);
+        setShowSuccess(true);
+      } else {
+        alert(response.message || 'Failed to save medicine');
+      }
+    } catch (error) {
+      console.error('Error saving medicine:', error);
+      alert('Could not save medicine');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleAddAnother = () => {
     setShowSuccess(false);
-    navigation.navigate('addmedicine'); // Or wherever the search start is
+    navigation.navigate('addmedicine');
   };
 
   const handleOK = () => {
     setShowSuccess(false);
-    navigation.navigate('MainTabs'); // Or medicine list
+    navigation.navigate('AdherenceMedicineList');
   };
 
   return (
@@ -212,15 +243,13 @@ export default function MedSchedule({ navigation, route }) {
 
       {/* NATIVE TIME PICKER */}
       {timePickerVisible && (
-        <></>
-
-        // <DateTimePicker
-        //   value={currentDate}
-        //   mode="time"
-        //   is24Hour={false}
-        //   display="default"
-        //   onChange={handleTimeChange}
-        // />
+        <DateTimePicker
+          value={currentDate}
+          mode="time"
+          is24Hour={false}
+          display="default"
+          onChange={handleTimeChange}
+        />
       )}
 
       {/* TIMES PER DAY MODAL */}

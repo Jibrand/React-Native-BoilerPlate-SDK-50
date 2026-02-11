@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
     View,
     Text,
@@ -6,12 +6,27 @@ import {
     TouchableOpacity,
     FlatList,
     Image,
+    RefreshControl,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 import { useMedicines } from '../MedicineContext';
 
 export default function AdherenceMedicineList({ navigation }) {
-    const { medicines, t } = useMedicines();
+    const { medicines, t, loadMedicines } = useMedicines();
+    const [refreshing, setRefreshing] = React.useState(false);
+
+    useFocusEffect(
+        useCallback(() => {
+            loadMedicines();
+        }, [])
+    );
+
+    const onRefresh = async () => {
+        setRefreshing(true);
+        await loadMedicines();
+        setRefreshing(false);
+    };
 
     const SUB_ICON_IMAGES = {
         p1: require('../../assets/p1.png'),
@@ -25,7 +40,7 @@ export default function AdherenceMedicineList({ navigation }) {
             <View style={styles.header}>
                 <TouchableOpacity
                     style={styles.back}
-                    onPress={() => navigation.popToTop()}
+                    onPress={() => navigation.goBack()}
                 >
                     <Ionicons name="arrow-back" size={18} />
                     <Text style={styles.backText}>
@@ -53,8 +68,11 @@ export default function AdherenceMedicineList({ navigation }) {
                 {/* LIST */}
                 <FlatList
                     data={medicines}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.id.toString()}
                     contentContainerStyle={styles.list}
+                    refreshControl={
+                        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                    }
                     renderItem={({ item }) => (
                         <View style={styles.doseRowContainer}>
                             {/* Box 1: Icon */}
@@ -78,9 +96,11 @@ export default function AdherenceMedicineList({ navigation }) {
                                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <View>
                                         <Text style={styles.doseName}>{item.name}</Text>
-                                        <Text style={styles.doseSub}>{item.dosage} {item.unit}</Text>
+                                        <Text style={styles.doseSub}>{item.dosage}</Text>
                                     </View>
-                                    <Text style={styles.takeInfo}>3 Left</Text>
+                                    <View>
+                                        {/* <Text style={styles.takeInfo}>{item.stock} {t('left')}</Text> */}
+                                    </View>
                                 </View>
                             </View>
 
@@ -119,7 +139,7 @@ export default function AdherenceMedicineList({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#F7F8F8',
     },
 
     /* Header */
