@@ -11,24 +11,35 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const ProfileScreen = ({ }) => {
   const { language, toggleLanguage, t } = useMedicines();
   const navigation = useNavigation();
-  const [loading, setLoading] = useState(false);
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const [deactivateLoading, setDeactivateLoading] = useState(false);
 
   const handleLogout = async () => {
+    console.log('Profile: handleLogout triggered');
+    setLogoutLoading(true);
     try {
       const userDataStr = await AsyncStorage.getItem('userData');
       const userData = userDataStr ? JSON.parse(userDataStr) : null;
+      console.log('Profile: userData retrieved', userData);
 
       if (userData && userData.id) {
-        await api.post('/auth/logout', { userId: userData.id, role: 'patient' });
+        console.log('Profile: Calling logout API', { userId: userData.id, role: 'patient' });
+        const response = await api.post('/auth/logout', { userId: userData.id, role: 'patient' });
+        console.log('Profile: Logout API response', response);
+      } else {
+        console.warn('Profile: No userData or userId found, skipping API call');
       }
 
       await AsyncStorage.multiRemove(['isAuthorized', 'userToken', 'userData']);
+      console.log('Profile: Local storage cleared, navigating to login');
       navigation.reset({
         index: 0,
         routes: [{ name: 'login' }],
       });
     } catch (e) {
       console.error('Error logging out:', e);
+    } finally {
+      setLogoutLoading(false);
     }
   };
 
@@ -42,7 +53,7 @@ const ProfileScreen = ({ }) => {
           text: 'Deactivate',
           style: 'destructive',
           onPress: async () => {
-            setLoading(true);
+            setDeactivateLoading(true);
             try {
               const userDataStr = await AsyncStorage.getItem('userData');
               const userData = userDataStr ? JSON.parse(userDataStr) : null;
@@ -55,7 +66,7 @@ const ProfileScreen = ({ }) => {
 
               const response = await api.patch(`/patients/${userData.id}`, {
                 status: 'Deactive'
-              });
+              }, token);
 
               if (response.success) {
                 Alert.alert('Success', 'Your account has been deactivated.');
@@ -67,7 +78,7 @@ const ProfileScreen = ({ }) => {
               console.error('Deactivate error:', error);
               Alert.alert('Error', 'Something went wrong');
             } finally {
-              setLoading(false);
+              setDeactivateLoading(false);
             }
           }
         }
@@ -107,12 +118,12 @@ const ProfileScreen = ({ }) => {
 
         {/* Delete */}
         <TouchableOpacity
-          style={[styles.menuItem, loading && styles.disabledItem]}
+          style={[styles.menuItem, deactivateLoading && styles.disabledItem]}
           onPress={handleDeactivate}
-          disabled={loading}
+          disabled={deactivateLoading || logoutLoading}
         >
           <Text style={styles.menuText}>{t('deleteAccount')}</Text>
-          {loading ? (
+          {deactivateLoading ? (
             <ActivityIndicator size="small" color="#ef4444" />
           ) : (
             <Feather name="trash-2" size={20} color="#ef4444" />
@@ -120,9 +131,17 @@ const ProfileScreen = ({ }) => {
         </TouchableOpacity>
 
         {/* Logout */}
-        <TouchableOpacity style={styles.menuItem} onPress={handleLogout}>
+        <TouchableOpacity
+          style={[styles.menuItem, logoutLoading && styles.disabledItem]}
+          onPress={handleLogout}
+          disabled={logoutLoading || deactivateLoading}
+        >
           <Text style={styles.menuText}>{t('logout')}</Text>
-          <Ionicons name="log-out-outline" size={22} color="#9ca3af" />
+          {logoutLoading ? (
+            <ActivityIndicator size="small" color="#9ca3af" />
+          ) : (
+            <Ionicons name="log-out-outline" size={22} color="#9ca3af" />
+          )}
         </TouchableOpacity>
 
         {/* DEBUG: TEST NOTIFICATION */}

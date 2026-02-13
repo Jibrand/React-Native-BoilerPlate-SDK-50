@@ -10,6 +10,7 @@ import {
   Platform,
   Image,
   TextInput,
+  ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -236,8 +237,16 @@ export default function MedSchedule({ navigation, route }) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.figmaNextBtn} onPress={saveMedicine}>
-          <Text style={styles.figmaNextText}>{t('next')}</Text>
+        <TouchableOpacity
+          style={[styles.figmaNextBtn, loading && styles.disabledBtn]}
+          onPress={saveMedicine}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.figmaNextText}>{t('next')}</Text>
+          )}
         </TouchableOpacity>
       </ScrollView>
 
@@ -498,6 +507,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: '#fff',
+  },
+  disabledBtn: {
+    opacity: 0.7,
   },
 
   /* MODALS FOR OTHERS */

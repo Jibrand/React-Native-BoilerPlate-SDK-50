@@ -1,5 +1,5 @@
-const API_URL = 'https://8548-175-107-221-11.ngrok-free.app/api';
-// const API_URL = 'https://zayna-backend.vercel.app/api';
+// const API_URL = 'https://8548-175-107-221-11.ngrok-free.app/api';
+const API_URL = 'https://zayna-backend.vercel.app/api';
 
 export const api = {
     async post(endpoint, data) {
