@@ -506,13 +506,10 @@ const styles = StyleSheet.create({
   },
   activeSubTabPill: {
     borderColor: '#1F2937',
-    border: 1,
     borderWidth: 1,
   },
   activeSubTabText: {
     color: '#262C40',
-    border: 12,
-    borderColor: '#1F2937',
   },
   activeSubTabCircle: {
     borderColor: '#1F2937',

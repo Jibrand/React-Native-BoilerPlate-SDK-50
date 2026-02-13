@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoadingScreen from './Screen/Loading/Loading';
@@ -16,10 +17,15 @@ import Pending from './Screen/Auth/Pending';
 import ProfileTab from './Screen/Profile/ProfileTab';
 import PersonalInfoScreen from './Screen/Profile/PersonalInfo';
 import Timeline from './Screen/Explore/Timeline';
+import { registerForPushNotificationsAsync } from './utils/notifications';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+  }, []);
+
   return (
     <MedicineProvider>
       <RootSiblingParent>

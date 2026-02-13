@@ -15,6 +15,13 @@ const ProfileScreen = ({ }) => {
 
   const handleLogout = async () => {
     try {
+      const userDataStr = await AsyncStorage.getItem('userData');
+      const userData = userDataStr ? JSON.parse(userDataStr) : null;
+
+      if (userData && userData.id) {
+        await api.post('/auth/logout', { userId: userData.id, role: 'patient' });
+      }
+
       await AsyncStorage.multiRemove(['isAuthorized', 'userToken', 'userData']);
       navigation.reset({
         index: 0,
@@ -117,6 +124,19 @@ const ProfileScreen = ({ }) => {
           <Text style={styles.menuText}>{t('logout')}</Text>
           <Ionicons name="log-out-outline" size={22} color="#9ca3af" />
         </TouchableOpacity>
+
+        {/* DEBUG: TEST NOTIFICATION */}
+        {/* <TouchableOpacity
+          style={[styles.menuItem, { marginTop: 20, borderColor: '#10b981', borderWidth: 1 }]}
+          onPress={async () => {
+            const { sendTestNotification } = require('../../utils/notifications');
+            await sendTestNotification();
+            Alert.alert("Sent", "A test notification will appear in 5 seconds. Please close the app or stay on this screen.");
+          }}
+        >
+          <Text style={[styles.menuText, { color: '#10b981' }]}>Test Notification</Text>
+          <Ionicons name="notifications-outline" size={22} color="#10b981" />
+        </TouchableOpacity> */}
       </View>
     </View>
   );
